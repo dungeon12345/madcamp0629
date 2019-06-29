@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:background="#794EE2DD"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="@string/gallery"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp"
+            android:background="#794EE2DD"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="@string/camera"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <GridView
+            android:id="@+id/galleryGridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="200dp"
+            android:columnWidth="280dp"
+            android:gravity="center"
+            android:horizontalSpacing="2dp"
+            android:numColumns="3"
+            android:padding="2dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="2dp"></GridView>
+
+    </RelativeLayout>
+
+</LinearLayout>
