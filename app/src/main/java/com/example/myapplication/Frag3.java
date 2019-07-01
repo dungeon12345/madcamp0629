@@ -68,6 +68,31 @@ public class Frag3 extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        GridView gallery = (GridView) v.findViewById(R.id.galleryGridView);
+
+        gallery.setAdapter(new ImageAdapter((Activity) getContext()));
+
+        gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,
+                                    int position, long arg3) {
+                if (null != images && !images.isEmpty())
+                    Toast.makeText(
+                            getContext(),
+                            "position " + position + " " + images.get(position),
+                            Toast.LENGTH_LONG).show();
+                ;
+
+            }
+        });
+    }
+
     GridView mGridView ;
     @Nullable
     @Override
@@ -98,24 +123,6 @@ public class Frag3 extends Fragment {
             }
         });
 
-        GridView gallery = (GridView) v.findViewById(R.id.galleryGridView);
-
-        gallery.setAdapter(new ImageAdapter((Activity) getContext()));
-
-        gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                    int position, long arg3) {
-                if (null != images && !images.isEmpty())
-                    Toast.makeText(
-                            getContext(),
-                            "position " + position + " " + images.get(position),
-                            Toast.LENGTH_LONG).show();
-                ;
-
-            }
-        });
         return v;
     }
 
