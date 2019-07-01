@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             adapter.AddFragment(new Frag2(), "Voice");
             adapter.AddFragment(new com.example.myapplication.Frag3(), "Gallery");
 
-            viewPager.setAdapter(adapter);add .
+            viewPager.setAdapter(adapter);
             viewPager.setOffscreenPageLimit(2);
             tabLayout.setupWithViewPager(viewPager);
 

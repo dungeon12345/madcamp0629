@@ -14,40 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="420dp"
-            android:background="#794EE2DD"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="@string/gallery"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="465dp"
-            android:background="#794EE2DD"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:text="@string/camera"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
-
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="510dp"
-            android:background="@color/design_default_color_background"
-            android:backgroundTint="@color/red"
-            android:text="@string/refresh"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/button4"
@@ -80,10 +46,11 @@
         <GridView
             android:id="@+id/galleryGridView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="421dp"
+            android:layout_alignBottom="@+id/ImageView"
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="160dp"
             android:columnWidth="280dp"
             android:gravity="center"
             android:horizontalSpacing="2dp"
@@ -92,20 +59,66 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="2dp"></GridView>
 
-        <ImageView
-            android:id="@+id/ImageView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="150dp"
-            android:gravity="center"></ImageView>
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#794EE2DD"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:text="@string/gallery"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#794EE2DD"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:text="@string/camera"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#794EE2DD"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:text="@string/refresh"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/BlackBackground"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="421dp"
             android:layout_marginBottom="150dp"
-            android:background="@color/cardview_dark_background"
-            ></ImageView>
+            android:background="@color/cardview_dark_background"></ImageView>
+
+        <ImageView
+            android:id="@+id/ImageView"
+            android:layout_width="match_parent"
+            android:layout_height="545dp"
+            android:layout_alignStart="@+id/BlackBackground"
+            android:layout_alignLeft="@+id/BlackBackground"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="150dp"
+            android:gravity="center"></ImageView>
 
     </RelativeLayout>
 
