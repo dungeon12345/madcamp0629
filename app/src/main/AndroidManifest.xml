@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:allowBackup="true"
@@ -26,6 +28,7 @@
         </activity>
 
         <activity android:name=".RecordingListActivity"></activity>
+        <activity android:name=".ContactViewAdapter"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

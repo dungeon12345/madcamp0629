@@ -15,12 +15,25 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
     Context mContext;
-    List<ContactItem> mData;
 
-    public RecyclerViewAdapter(Context mContext, List<ContactItem> mData) {
-        this.mContext = mContext;
-        this.mData = mData;
+
+
+    public interface OnItemClickListener {
+        void onItemClick(ContactItem item);
     }
+
+    private List<ContactItem> items;
+    private OnItemClickListener listener;
+
+
+
+    public RecyclerViewAdapter(Context mContext, List<ContactItem> items, OnItemClickListener listener) {
+        this.mContext = mContext;
+        this.items = items;
+        this.listener = listener;
+    }
+
+
 
     @NonNull
     @Override
@@ -36,14 +49,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.tv_name.setText(mData.get(position).getUser_Name());
-        holder.tv_phone.setText(mData.get(position).getUser_phNumber());
+        holder.tv_name.setText(items.get(position).getUser_Name());
+        holder.tv_phone.setText(items.get(position).getUser_phNumber());
+        holder.bind(items.get(position), listener);
         //holder.img.setImageResource(mData.get(position).getPhoto_id());
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return items.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -58,7 +72,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_name = (TextView) itemView.findViewById(R.id.name_contact);
             tv_phone = (TextView) itemView.findViewById(R.id.phone_contact);
             //img = (ImageView) itemView.findViewById(R.id.img_contact);
+        }
 
+        public void bind(final ContactItem item, final OnItemClickListener listener) {
+            tv_name.setText(item.getUser_Name());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
 
         }
     }
