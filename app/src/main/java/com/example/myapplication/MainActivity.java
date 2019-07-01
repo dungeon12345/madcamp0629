@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -66,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
             adapter.AddFragment(new Frag2(), "Voice");
             adapter.AddFragment(new com.example.myapplication.Frag3(), "Gallery");
 
-            viewPager.setAdapter(adapter);
+            viewPager.setAdapter(adapter);add .
+            viewPager.setOffscreenPageLimit(2);
             tabLayout.setupWithViewPager(viewPager);
 
         }
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     adapter.AddFragment(new com.example.myapplication.Frag3(), "Voice");
 
                     viewPager.setAdapter(adapter);
+                    viewPager.setOffscreenPageLimit(2);
                     tabLayout.setupWithViewPager(viewPager);
 
                 } else {

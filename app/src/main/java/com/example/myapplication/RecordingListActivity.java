@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,18 +38,22 @@ public class RecordingListActivity extends AppCompatActivity {
     private void fetchRecordings() {
 
         File root = android.os.Environment.getRootDirectory();
-        String path = root.getAbsolutePath() + "/VoiceRecorderSimplifiedCoding/Audios";
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath() + "/MyVoiceApp/";
         Log.d("Files", "Path: " + path);
         File directory = new File(path);
         File[] files = directory.listFiles();
 
         if( files!=null ){
-            Log.d("Files", "Size: "+ files.length);
+
             for (int i = 0; i < files.length; i++) {
 
                 Log.d("Files", "FileName:" + files[i].getName());
                 String fileName = files[i].getName();
-                String recordingUri = root.getAbsolutePath() + "/VoiceRecorderSimplifiedCoding/Audios/" + fileName;
+
+                //File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC), "MyVoiceApp");
+
+
+                String recordingUri = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath() + "/MyVoiceApp/" + fileName;
 
                 Recording recording = new Recording(recordingUri,fileName,false);
                 recordingArraylist.add(recording);
@@ -60,7 +65,7 @@ public class RecordingListActivity extends AppCompatActivity {
 
         }else{
             textViewNoRecordings.setVisibility(View.VISIBLE);
-            recyclerViewRecordings.setVisibility(View.VISIBLE);
+            recyclerViewRecordings.setVisibility(View.GONE);
         }
 
     }
