@@ -63,7 +63,7 @@ public class ContactViewAdapter extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.textView2);
         textView3 = (TextView) findViewById(R.id.textView3);
 
-        Button phone = (Button) findViewById(R.id.phone);
+        ImageView phone = (ImageView) findViewById(R.id.phone);
 
         editText.setText(name);
         editText3.setText(num);
@@ -100,7 +100,7 @@ public class ContactViewAdapter extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     String mNum = num;
-                    String tel = "tel" + num;
+                    String tel = "tel:" + num;
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(tel));
                     if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         // TODO: Consider calling
